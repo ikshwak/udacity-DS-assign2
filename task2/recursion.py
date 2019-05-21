@@ -24,32 +24,17 @@ def find_files(suffix, path):
     except FileNotFoundError:
         return None
     for item in items:
-        localItem = path + "/" + item
-        print("item " + localItem)
+        localItem = os.path.join(path,item)
         if os.path.isdir(localItem):
             find_files(suffix,localItem)
         elif os.path.isfile(localItem) and localItem.endswith(suffix):
-            print(".c file " + localItem)
             fileList.append(localItem)
     return fileList
 
-print(find_files(".c", "./testdir"))
 
-"""
-# Let us print the files in the directory in which you are running this script
-fileList = os.listdir("./testdir/testdir")
-print (fileList)
+def test_function():
+    find_files(".c", "./testdir")
+    for item in fileList:
+        print(item)
 
-for file in fileList:
-    print(file)
-    if os.path.isdir(os.path.join("./testdir/testdir", file)):
-        print(os.listdir(os.path.join("./testdir/testdir", file)))
-
-# Let us check if this file is indeed a file!
-print (os.path.isfile("./recursion.py"))
-
-print (os.path.isdir("./testdir"))
-
-# Does the file end with .py?
-print ("./ex.py".endswith(".py"))
-"""
+test_function()
