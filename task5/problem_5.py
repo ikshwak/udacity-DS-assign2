@@ -14,7 +14,7 @@ class Block:
 
     def calc_hash(self):
           sha = hashlib.sha256()
-          hashData = self.data
+          hashData = self.data + self.timestamp
           if self.previous_hash != None:
               hashData += self.previous_hash
           hash_str = hashData.encode('utf-8')
@@ -72,7 +72,8 @@ def test_case1():
 
     print(blockChain)
 """
-TEST CASE 1
+TEST CASE 1
+
 
 MY BLOCK CHAIN
 timestamp:23-45-48:5/28/2019
@@ -245,7 +246,8 @@ def test_case3():
 
     print(blockChain)
 """
-TEST CASE 3
+TEST CASE 3
+
 
 Invalid data! cannot create the chain
 Invalid data! cannot create the chain
@@ -268,7 +270,8 @@ Invalid data! cannot create the chain
 Invalid data! cannot create the chain
 Invalid data! cannot create the chain
 Invalid data! cannot create the chain
-MY BLOCK CHAIN
+MY BLOCK CHAIN
+
 EMPTY BLOCKCHAIN
 """
 test_case3()
