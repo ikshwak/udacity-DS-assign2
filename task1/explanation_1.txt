@@ -1,0 +1,23 @@
+#######################################################################################
+				SOLUTION AND TIME/SPACE COMPLEXITY
+#######################################################################################
+
+1. the LRU cache class has:
+		- a Queue to maintain all unique keys.
+		- a dictionary to maintain the key/value pairs.
+		- variables to maintain the cache size.
+		- constants to maintain the cache capacicty.
+
+2. Get Function:
+		- Get function returns the value of a key mapped to the cache(dictionary) maintained in the class. 
+		- if there is no key/value pair it returns -1
+		TIME COMPLEXITY - O(1) - reading a key Index from dictionary takes O(1)
+  
+3. Set function:
+		- set function adds the key/value pair to the cache(dictionary)
+        - In addition to that we also maintain a queue of unique keys.
+        - If the cache size equals cache capacity we dequeue a key from our keyList and pop the corresponding key from the cache.
+        - The keyList is a FIFO so the last added key/value will be discarded from the cache and a new key/value pair will be accepted to maintain the cache size.
+		TIME COMPLEXITY - O(1) - writing a key Index/Value from dictionary takes O(1) and also enqueue/dequeue of the unqiue keys take O(1)
+		SPACE COMPLEXITY - in order to attain the O(1) overall time complexitiy we had to use the Queue and dictionary to store the keys and key/value respectivly.
+							Resulting in a space complexitiy of O(n)
