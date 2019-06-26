@@ -1,0 +1,21 @@
+#######################################################################################
+				SOLUTION AND TIME/SPACE COMPLEXITY
+#######################################################################################
+
+BLOCKCHAIN
+
+There are 2 classes defined to implement this block chain.
+
+Block:
+	- it defines each block of the bloch chain list.
+	- calc_hash():
+		- this function defines the hash of the current block using SHA256, current data, current time stamp and previous block HASH (if it exists).
+	- getGMT():
+		- helper function returns the current date-time.
+		
+BlockList:
+	- it defines a linked list of Blocks defined above.
+	- addBlock():
+		- this function is the core of the problem. it adds a new block with its new hash to the list and links to the previous block accordingly.
+	TIME COMPLEXITY: O(1) time taken to add a new block to the list.
+	SPACE COMPLEXITY: O(n) n is determined by the number of blocks added to the list.

@@ -1,0 +1,51 @@
+#######################################################################################
+				SOLUTION AND TIME/SPACE COMPLEXITY
+#######################################################################################
+
+HUFFMAN Coding and Decoding:
+
+Steps followed:
+
+	frequency():
+    - Take a string and determine the relevant frequencies of the characters.
+		- Used a dictionary to build the frequencies of the characters in the given string.
+		- TIME COMPLEXITY: O(n) iterating through each character in the string.
+		- SPACE COMPLEXITY: O(n) to store the key/value pair in a dictionary.
+    
+	sortFrequency():
+	- Build and sort a list of tuples from lowest to highest frequencies.
+		- Used a list to store the key/value as tuples.
+		- Used the in built sort function for the list.
+		TIME COMPLEXITY: O(nlogn) the sort function takes most of the time.
+		SPACE COMPLEXITY: O(n) space taken for the key/value pairs.
+
+	buildHuffman():
+    - Build the Huffman Tree by assigning a binary code to each letter, using shorter codes for the more frequent letters. (This is the heart of the Huffman algorithm.)
+		- Iterate through the sorted frequencies, take the least 2 frequencies and combine until only the root node is left
+		- Sort these key values in order to build a tree with min value as the root.
+		TIME COMPLEXITY: O(nlogn) the sort function takes most of the time.
+		SPACE COMPLEXITY: O(1) No additional space is taken.
+	
+	trimHuffman():
+    - Trim the Huffman Tree (remove the frequencies from the previously built tree).
+		- Iterate through the tree to strip the frequencies values from the tree.
+		TIME COMPLEXITY: O(n) time takes to iterate the tree elements.
+		SPACE COMPLEXITY: O(1) No additional space is taken.
+	
+	setCodes():
+	-	iteraters through the trimmed tree to set the binary codes with most bits getting assigned to the least frequent character.
+		TIME COMPLEXITY: O(n) time takes to iterate the tree elements.
+		SPACE COMPLEXITY: O(n) stores the codes in a dictionary for character to build the bit stream at the end.
+	
+	huffman_encoding():
+	- Encode the text into its compressed form.
+	- Core function that calls all the above mentioned functions in the same sequence to encode and compress the given string of characters.
+		***TIME COMPLEXITY***: OVERALL TIME COMPLEXITY is determined by the function that takes the most time and sorting takes the most time - O(nlogn).
+		***SPACE COMPLEXITY***: OVERALL SPACE COMPLEXITY is complex in this solution as we used 2 dictionaries and 1 list but overall it can quantified as O(n).
+	
+	huffman_decoding():
+	- Decode the text from its compressed form.
+	- Core function to decode a stream of bits.
+	- for every bit in the stream the function traverses the tree to find the character.
+		TIME COMPLEXITY: Binary search of the tree takes - O(logn).
+		SPACE COMPLEXITY: O(1) no new space has been used..

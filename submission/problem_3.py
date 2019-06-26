@@ -59,7 +59,9 @@ def trimHuffman(tree) :
 
 def setCodes(node,val='') :
     global codes
-    if type(node) == type("") :
+    if type(node) == type("") and val == '':
+        codes[node] = "0"
+    elif type(node) == type("") :
         codes[node] = val
     else  : 
         setCodes(node[0], val+"0")
@@ -96,11 +98,11 @@ def huffman_decoding(data,tree) :
     return output
 
 if __name__ == "__main__":
-
     """
     TEST CASE 1
     """
 
+    print("TEST CASE 1")
     a_great_sentence = "The bird is the word"
     print ("The content of the data is: {}\n".format(a_great_sentence))
     encoded_data, tree = huffman_encoding(a_great_sentence)
@@ -121,6 +123,7 @@ if __name__ == "__main__":
     TEST CASE 2
     """
 
+    print("TEST CASE 2")
     a_great_sentence = ""
     print ("The content of the data is: {}\n".format(a_great_sentence))
     encoded_data, tree = huffman_encoding(a_great_sentence)
@@ -141,6 +144,7 @@ if __name__ == "__main__":
     TEST CASE 3
     """
 
+    print("TEST CASE 3")
     a_great_sentence = "This IS CaSe SenSITIve"
     print ("The content of the data is: {}\n".format(a_great_sentence))
     encoded_data, tree = huffman_encoding(a_great_sentence)
@@ -156,3 +160,22 @@ if __name__ == "__main__":
     The content of the decoded data is: This IS CaSe SenSITIve
     """
 
+    """
+    TEST CASE 4
+    """
+
+    print("TEST CASE 4")
+    a_great_sentence = "AAAAAAAAAAA"
+    print ("The content of the data is: {}\n".format(a_great_sentence))
+    encoded_data, tree = huffman_encoding(a_great_sentence)
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
+    decoded_data = huffman_decoding(encoded_data, tree)
+    print ("The content of the decoded data is: {}\n".format(decoded_data))
+
+    """
+    The content of the data is: AAAAAAAAAAA
+
+    The content of the encoded data is: 00000000000
+
+    The content of the decoded data is: AAAAAAAAAAA
+    """

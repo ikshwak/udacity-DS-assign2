@@ -1,0 +1,23 @@
+#######################################################################################
+				SOLUTION AND TIME/SPACE COMPLEXITY
+#######################################################################################
+
+LINKED LIST Union and intersection
+
+Union():
+	- Check if any of the lists are empty if so return the non-empty list as the union.
+	- I have used a set to store a union of unique elements.
+	- iterate list one and add elements to the set.
+	- iterate list two and add elements to the set, Please Note: only unique elements in list two are added to avoid duplicates.
+	- iterate over the set to add these elements a new list.
+	TIME COMPLEXITY: O(n) we iterate over both lists only once. n is determined by the list of unique items in both lists.
+	SPACE COMPLEXITY: O(n) stores the unique elements in a set.
+	
+Intersection:
+	- check if any of the lists are empty is so return None.
+	- I have used a dictionary to iterate over list one and store the elements to the dictionary.
+	- next iterate list two and check the dictionary if the element is part of list one.
+	- if so add the elements to a set to maintain unique element list.
+	- iterate over the set and add the elements to the LinkedList defined in the problem statement.
+	TIME COMPLEXITY: O(n) we iterate over both lists only once. n is determined by the list of unique items in both lists.
+	SPACE COMPLEXITY: O(m) - m is determined by the number of elements in list one and O(n) to store the unique elements in a set.

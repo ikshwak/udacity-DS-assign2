@@ -1,0 +1,15 @@
+#######################################################################################
+				SOLUTION AND TIME/SPACE COMPLEXITY
+#######################################################################################
+
+	- Group class maintains a list of groups and users. The list of groups can internally be another list of sub groups as well (child/sub child etc).
+
+is_user_in_group():
+	- in this function we used a set to maintain an immutable list of unique users.
+	- Users can be part of multiple groups in the chain or sub chain so once a user is added to our we do not have to do it again.
+	- we pass parameters of this function and the set to a helper function used.
+
+create_user_set():
+	- this function recursively searches each group and adds unique users to the set.
+	TIME COMPLEXITY: O(n) n is determined by the number of sub groups that are part of the main group passed.
+	SPACE COMPLEXITY: in order to achieve the O(n) time we had to use the SET data structure to store unique user list - O(m).

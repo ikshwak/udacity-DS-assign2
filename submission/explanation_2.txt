@@ -1,0 +1,11 @@
+#######################################################################################
+				SOLUTION AND TIME/SPACE COMPLEXITY
+#######################################################################################
+
+find_files() function:
+	- Uses a helper function in order to recursively go deep in the directory chain
+	- find_files_help() takes the parameters from the main function and a list(fileList).
+	- this function recursively iterates all the directories/sub directories to find files with a particular suffix.
+	- OS helper functions like "os.path.join", "os.path.isdir" and "os.path.isfile" are used to determine the type.
+	TIME COMPLEXITY - O(n) here n is determined by the number of directories and sub-directories packed in the directory tree.
+	SPACE COMPLEXITY - O(m) here m is determined by the number of files meeting the search criteria.
